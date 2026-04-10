@@ -33,3 +33,5 @@ function highestOccurringElement(nums) {
     // STEP 5: return result
     return answer;
 }
+
+
