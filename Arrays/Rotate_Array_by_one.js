@@ -1,5 +1,4 @@
 // Given an integer array nums, rotate the array to the left by one.
-
 class Solution {
     rotateArrayByOne(nums){
 
