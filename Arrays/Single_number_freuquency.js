@@ -11,7 +11,7 @@ class Solution{
                     count ++
                 }
             }
-            if(currentElement == 1){
+            if(count == 1){
                 return currentElement
             }
         }
