@@ -1,33 +1,19 @@
 class Solution {
+  longestSubArray(nums, k) {
+    let max = 0;
+    for (let i = 0; i < nums.length; i++) {
+      let sum = 0;
+      for (let j = i; j < nums.length; j++) {
+        sum += nums[j];
 
-    longestSubarray(nums, k) {
-
-        let maxLength = 0;   // <-- Declaration
-
-        for (let i = 0; i < nums.length; i++) {
-
-            let sum = 0;
-
-            for (let j = i; j < nums.length; j++) {
-
-                sum += nums[j];
-
-                if (sum === k) {
-
-                    let length = j - i + 1;
-
-                    if (length > maxLength) {
-                        maxLength = length;
-                    }
-
-                }
-
-            }
-
+        if (sum == k) {
+          let length = j - i + 1;
+          if (length > max) {
+            max = length;
+          }
         }
-
-        return maxLength;
-
+      }
+      return max
     }
-
+  }
 }
