@@ -1,37 +1,55 @@
-//brute method 
+class Solution {
+  luu(nums) {
+    let maxi = -Infinity;
+
+    let n = nums.length;
+
+    for (let i = 0; i < n; i++) {
+      for (let j = i; j < n; j++) {
+        let sum = 0;
+        for (let k = i; k <= j; k++) {
+          sum += nums[k];
+        }
+        let maxi = Math.max(maxi, sum);
+      }
+    }
+    return maxi;
+  }
+}
+
+function main() {
+  let nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+
+  let sol = new Solution();
+
+  let maxSum = luu(nums);
+
+  console.log("The maximum subarray sum is: " + maxSum);
+}
+
+main();
+
+// Optimal Solution Kadane's Algo
 
 class Solution {
-    // Function to find maximum sum of subarrays
-    maxSubArray(nums) {
-        
-        /* Initialize maximum sum with
-        the smallest possible integer*/
-        let maxi = -Infinity;
+  kadaneAlgo(nums) {
+    let n = nums.length;
 
-        // Iterate over each starting index of subarrays
-        for (let i = 0; i < nums.length; i++) {
-            
-            /* Iterate over each ending index
-            of subarrays starting from i*/
-            for (let j = i; j < nums.length; j++) {
-                
-                /* Variable to store the sum
-                of the current subarray*/
-                let sum = 0;
+    let maxi = -Infinity;
 
-                // Calculate the sum of subarray nums[i...j]
-                for (let k = i; k <= j; k++) {
-                    sum += nums[k];
-                }
+    let sum = 0;
 
-                /* Update maxi with the maximum of its current
-                value and the sum of the current subarray*/
-                maxi = Math.max(maxi, sum);
-                
-            }
-        }
+    for (let i = 0; i < n; i++) {
+      sum += nums[i];
 
-        // Return the maximum subarray sum found
-        return maxi;
+      if (sum > maxi) {
+        maxi = sum;
+      }
+
+      if (sum < 0) {
+        sum = 0;
+      }
     }
+    return maxi;
+  }
 }
