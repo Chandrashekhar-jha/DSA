@@ -15,5 +15,5 @@ class Solution {
 
 const sol = new Solution()
 
-const prices = [7,6,3,8,9,1]
+const nums = [7,6,3,8,9,1]
 console.log("Maximum profit:" , sol.buysellStock(nums))
